@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Driver : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]float SteerSpeed = 1f;
+    [SerializeField]float Speed = 0.01f;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        float steerAmount = Input.GetAxis("Horizontal")*SteerSpeed *Time.deltaTime;
+        float CurrentSpeed = Input.GetAxis("Vertical")*Speed *Time.deltaTime;
+        transform.Rotate(0,0,-steerAmount);
+        transform.Translate(0,CurrentSpeed,0);
     }
 }
