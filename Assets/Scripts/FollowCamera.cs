@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]GameObject thingToFollow;
+    [SerializeField]float cameraHeight = 10;
+    void LateUpdate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        transform.position = thingToFollow.transform.position - new Vector3(0,0, cameraHeight);
     }
 }
